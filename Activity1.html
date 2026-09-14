@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=0.5">
+<title>Angela Marie T Dela Cruz — BSIS, 2nd Year</title>
+        
+<!-- TASK 9: Inline and Internal CSS Styles (site-wide styling lives here) -->
+<style>
+:root {
+--ink: #1f2937;
+--paper: #ffffff;
+--moss: #2e6b44;
+--moss-light: #3d8b5a;
+--moss-dark: #245437;
+--gold: #d8a225;
+--cream: #f6f4ec;
+--soft: #e8e4d6;
+--shadow: rgba(46, 107, 68, 0.12);
+}
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+color: var(--ink);
+background: linear-gradient(135deg, var(--cream) 0%, #fff 100%);
+line-height: 1.7;
+min-height: 100vh;
+}
+
+h1, h2, h3 {
+font-family: Georgia, 'Times New Roman', serif;
+color: var(--moss);
+}
+
+h2 {
+font-size: 1.8rem;
+margin-bottom: 1.5rem;
+position: relative;
+display: inline-block;
+}
+
+h2::after {
+content: '';
+position: absolute;
+bottom: -6px;
+left: 0;
+width: 60px;
+height: 3px;
+background: linear-gradient(90deg, var(--moss), var(--gold));
+border-radius: 2px;
+}
+
+a {
+color: var(--moss);
+transition: all 0.3s ease;
+}
+
+a:hover {
+color: var(--gold);
+}
+
+.wrap {
+max-width: 800px;
+width: 92%;
+margin: 0 auto;
+padding: 0 20px;
+}
+     
+nav {
+position: sticky;
+top: 0;
+z-index: 100;
+background: rgba(255, 255, 255, 0.85);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+border-bottom: 1px solid rgba(46, 107, 68, 0.1);
+box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+nav .wrap {
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 15px;
+padding: 18px 20px;
+}
+
+.brand {
+font-size: 1.35rem;
+font-weight: 700;
+text-decoration: none;
+color: var(--moss);
+letter-spacing: -0.3px;
+}
+
+nav ul {
+list-style: none;
+display: flex;
+gap: 25px;
+flex-wrap: wrap;
+}
+
+nav a {
+text-decoration: none;
+color: var(--ink);
+font-weight: 500;
+padding: 6px 0;
+border-bottom: 2px solid transparent;
+}
+
+nav a:hover {
+border-bottom: 2px solid var(--gold);
+color: var(--moss);
+}
+
+section {
+padding: 70px 0;
+border-bottom: 1px solid rgba(46, 107, 68, 0.08);
+animation: fadeInUp 0.8s ease forwards;
+opacity: 0;
+}
+
+@keyframes fadeInUp {
+from { opacity: 0; transform: translateY(30px); }
+to { opacity: 1; transform: translateY(0); }
+        }
+
+section:nth-child(2) { animation-delay: 0.1s; }
+section:nth-child(3) { animation-delay: 0.2s; }
+section:nth-child(4) { animation-delay: 0.3s; }
+section:nth-child(5) { animation-delay: 0.4s; }
+section:nth-child(6) { animation-delay: 0.5s; }
+section:nth-child(7) { animation-delay: 0.6s; }
+section:nth-child(8) { animation-delay: 0.7s; }
+        
+.music-player {
+background: linear-gradient(135deg, rgba(46, 107, 68, 0.08), rgba(216, 162, 37, 0.08));
+padding: 20px 25px;
+border-radius: 16px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(46, 107, 68, 0.1);
+text-align: center;
+}
+
+.music-player p {
+color: var(--moss-dark);
+font-weight: 600;
+margin-bottom: 10px;
+font-size: 1.05rem;
+}
+
+.music-player audio {
+width: 100%;
+max-width: 400px;
+border-radius: 30px;
+}
+
+/* --- Hero (Task 1) --- */
+#hero {
+background: linear-gradient(135deg, #eaf4ea 0%, #f6f4ec 100%);
+padding: 90px 30px;
+text-align: center;
+border-radius: 0 0 40px 40px;
+margin-bottom: 20px;
+box-shadow: 0 4px 20px rgba(46, 107, 68, 0.08);
+}
+
+#hero .tag {
+font-size: 1.2rem;
+color: var(--moss);
+font-weight: 600;
+display: inline-block;
+background: rgba(46, 107, 68, 0.1);
+padding: 8px 20px;
+border-radius: 50px;
+margin-bottom: 25px;
+}
+
+#hero h1 {
+font-size: 3rem;
+margin-bottom: 25px;
+line-height: 1.2;
+color: var(--moss-dark);
+}
+
+#hero p {
+font-size: 1.15rem;
+max-width: 700px;
+margin: 0 auto;
+line-height: 1.8;
+color: var(--ink);
+opacity: 0.9;
+}
+
+        /* === ABOUT SECTION === */
+.about-img {
+float: left;
+width: 160px;
+margin-right: 25px;
+margin-bottom: 15px;
+border-radius: 16px;
+box-shadow: 0 8px 25px var(--shadow);
+transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.about-img:hover {
+transform: translateY(-5px) scale(1.02);
+box-shadow: 0 12px 35px rgba(46, 107, 68, 0.18);
+}
+
+#about p {
+margin-bottom: 1.2rem;
+font-size: 1.08rem;
+line-height: 1.8;
+}
+
+/* --- Skills & Hobbies (Task 4) --- */
+
+.cols {
+display: flex;
+flex-wrap: wrap;
+gap: 6%;
+}
+
+.box {
+width: 47%;
+background: var(--paper);
+padding: 25px;
+border-radius: 16px;
+box-shadow: 0 4px 15px var(--shadow);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+margin-bottom: 25px;
+}
+
+.box:hover {
+transform: translateY(-8px);
+box-shadow: 0 8px 25px rgba(46, 107, 68, 0.15);
+}
+
+.box h2 {
+font-size: 1.4rem;
+margin-bottom: 1rem;
+}
+
+ul.skills, ol.hobbies {
+padding-left: 22px;
+}
+k
+ul.skills li, ol.hobbies li {
+padding: 8px 0;
+font-size: 1.05rem;
+border-bottom: 1px dashed rgba(46, 107, 68, 0.15);
+}
+
+ul.skills li:last-child, ol.hobbies li:last-child {
+border-bottom: none;
+}
+
+/* --- Image (Task 5) --- */
+.photo {
+width: 100%;
+max-width: 600px;
+border-radius: 16px;
+box-shadow: 0 6px 20px var(--shadow);
+transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.photo:hover {
+transform: scale(1.02);
+box-shadow: 0 10px 30px rgba(46, 107, 68, 0.2);
+}
+
+figure {
+margin: 40px 0;
+text-align: center;
+}
+
+figcaption {
+margin-top: 15px;
+font-style: italic;
+color: #5a7d64;
+font-size: 1.05rem;
+}
+
+/* --- Table (Task 6) --- */
+table {
+width: 100%;
+border-collapse: separate;
+border-spacing: 0;
+border-radius: 16px;
+overflow: hidden;
+box-shadow: 0 4px 15px var(--shadow);
+background: var(--paper);
+margin-top: 20px;
+}
+
+th, td {
+padding: 15px 20px;
+text-align: left;
+border-bottom: 1px solid var(--soft);
+}
+    
+th {
+background: linear-gradient(90deg, var(--moss), var(--moss-light));
+color: white;
+font-weight: 600;
+}
+
+tr:last-child td {
+border-bottom: none;
+}
+
+tr:hover td {
+background: rgba(46, 107, 68, 0.04);
+}
+
+/* --- Form (Task 7) --- */
+form {
+max-width: 480px;
+background: var(--paper);
+padding: 35px;
+border-radius: 20px;
+box-shadow: 0 6px 20px var(--shadow);
+margin-top: 20px;
+}
+
+label {
+display: block;
+margin-bottom: 8px;
+font-weight: 600;
+color: var(--moss-dark);
+}
+
+input, select {
+width: 100%;
+padding: 14px 16px;
+margin-bottom: 20px;
+border: 2px solid var(--soft);
+border-radius: 10px;
+font-size: 1rem;
+transition: border-color 0.3s ease, box-shadow 0.3s ease;
+background: #fefefc;
+}
+
+input:focus, select:focus {
+outline: none;
+border-color: var(--moss);
+box-shadow: 0 0 0 4px rgba(46, 107, 68, 0.15);
+}
+
+button {
+background: linear-gradient(90deg, var(--moss), var(--moss-light));
+color: white;
+border: none;
+padding: 14px 32px;
+font-size: 1.05rem;
+font-weight: 600;
+border-radius: 10px;
+cursor: pointer;
+transition: all 0.3s ease;
+box-shadow: 0 4px 12px rgba(46, 107, 68, 0.25);
+}
+
+button:hover {
+background: linear-gradient(90deg, var(--moss-dark), var(--moss));
+transform: translateY(-2px);
+box-shadow: 0 6px 18px rgba(46, 107, 68, 0.35);
+}
+
+/* --- Video (Task 8) --- */
+.video-container {
+position: relative;
+width: 100%;
+max-width: 700px;
+margin: 30px auto;
+border-radius: 16px;
+overflow: hidden;
+box-shadow: 0 8px 25px var(--shadow);
+background: #000;
+}
+
+iframe, video {
+width: 100%;
+height: 400px;
+display: block;
+border: none;
+}
+
+/* --- Footer (Task 10) --- */
+footer {
+background: linear-gradient(135deg, var(--moss-dark), var(--moss));
+color: white;
+padding: 60px 0;
+border-radius: 40px 40px 0 0;
+margin-top: 40px;
+}
+
+footer .wrap {
+text-align: center;
+}
+
+footer p {
+margin: 10px 0;
+font-size: 1.08rem;
+}
+
+footer a {
+color: #f9e7b8;
+font-weight: 600;
+text-decoration: none;
+border-bottom: 2px solid transparent;
+}
+
+footer a:hover {
+color: var(--gold);
+border-bottom: 2px solid var(--gold);
+}
+
+address {
+font-style: normal;
+margin: 20px 0;
+opacity: 0.9;
+line-height: 1.8;
+}
+
+        /* === RESPONSIVE — Mobile Perfect === */
+@media (max-width: 768px) {
+#hero h1 { font-size: 2rem; }
+.cols { gap: 0; }
+.box { width: 100%; }
+.about-img { float: none; display: block; margin: 0 auto 25px; width: 180px; }
+nav .wrap { justify-content: center; text-align: center; }
+nav ul { justify-content: center; }
+form { padding: 25px; }
+iframe, video { height: 220px; }
+h2 { font-size: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- TASK 3: Navigation Links -->
+<nav>
+<div class="wrap">
+<a href="#hero" class="brand">Angela Marie T Dela Cruz</a>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#work">Websites</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- TASK 1: Basic structure, as the hero -->
+<section id="hero">
+<div class="wrap">
+<span class="tag">BSIS — Bachelor of Science in Information Systems</span>
+<h1>Welcome to My Webpage!</h1>
+        
+<div class="music-player">
+<p>🎶 Now Playing — My Favorite Song 💜</p>
+<audio controls loop>
+<source src="lany.mp3"type="audio/mpeg">   
+</div>
+                
+<p>Hi! I’m Angela Marie T Dela Cruz, a 2nd‑year student from beautiful Malacañang, Culasi, Antique. I love exploring how technology shapes our world — building systems that help people, communities, and local organizations grow.</p>
+</div>
+</section>
+
+<!-- TASK 2: Multi-Section Page with Headings (About section) -->
+<section id="about">
+<div class="wrap">
+<h2>About Me</h2>
+<img src="gel1.jpg" style="float:left; width: 260px; margin-right:20px; margin-botton:10px; border-radius:10px;">
+<p>I’m currently a 2nd‑year college student taking up Bachelor of Science in Information Systems. I live in Malacañang, Culasi — a peaceful, beautiful place right here in the province of Antique. My course blends information technology with business and management — learning how to design, build, and maintain systems that organize, process, and secure information effectively for people and organizations.</p>
+<p>Right now I’m building my foundation in HTML, CSS, programming, database management, and system analysis. My goal is to become a skilled IT professional who creates practical, useful information systems that make work easier, faster, and better organized — especially for communities and offices here in Antique. Technology should serve everyone, and I want to be part of that future.</p>
+<div style="clear: both;"></div>
+</div>
+</section>
+
+<!-- TASK 4: Skills and Hobbies -->
+<section id="skills">
+<div class="wrap cols">
+<div class="box">
+<h2>💻 Skills</h2>
+<ul class="skills">
+<li>HTML & Web Page Structure</li>
+<li>CSS Styling & Layout Design</li>
+<li>Basic Computer Operations</li>
+<li>Data Organization & Management</li>
+<li>System Analysis & Logic</li>
+</ul>
+</div>
+<div class="box">
+<h2>✨ Hobbies</h2>
+<ol class="hobbies">
+<li>Exploring how apps & websites work</li>
+<li>Reading about technology & computing</li>
+<li>Photography — landscapes & nature</li>
+<li>Learning something new every day</li>
+<li>Helping others with computers & tech</li>
+</ol>
+</div>
+</div>
+</section>
+
+<!-- TASK 5: Image with alt text, as a project photo -->
+<section>
+<div class="wrap">
+<h2>My Favorite Picture</h2>
+<figure>
+<img class="photo" src="sunset.jpeg" alt="Beautiful coastal view in Culasi Antique — golden sunrise over the sea, with mountains and clear blue sky, peaceful and inspiring">
+<figcaption>🌅 A lovely view from my hometown — Malacañang, Culasi. Antique’s beauty always reminds me to aim high and work hard for my dreams.</figcaption>
+</figure>
+</div>
+</section>
+
+<!-- TASK 6: Table, reframed as a resources list -->
+<section id="work">
+<div class="wrap">
+<h2>Sites I Keep Coming Back To</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>URL</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>📚 MDN Web Docs</td>
+<td><a href="https://developer.mozilla.org" target="_blank">developer.mozilla.org</a></td>
+<td>Trusted, detailed reference for HTML, CSS, and web standards — always accurate.</td>
+</tr>
+<tr>
+<td>📖 W3Schools</td>
+<td><a href="https://www.w3schools.com" target="_blank">w3schools.com</a></td>
+<td>Simple, step‑by‑step tutorials — perfect for beginners and quick practice.</td>
+</tr>
+<tr>
+<td>🎓 freeCodeCamp</td>
+<td><a href="https://www.freecodecamp.org" target="_blank">freecodecamp.org</a></td>
+<td>Learn to code completely free — full courses, projects, and certifications.</td>
+</tr>
+</table>
+</div>
+</section>
+
+<!-- TASK 8: Video embed, framed as a featured watch -->
+<section>
+<div class="wrap">
+<h2>Something Worth Watching</h2>
+<div class="video-container" style="width: 94%; max-width: 94%;">
+<video style="width: 100%; height: 329px; object-fit: contain; border: none;" controls playsinline>
+<source src="Messenger_creation_8E5B4895-4274-4295-8E06-47271F333DAC.mp4~2.mp4" type="video/mp4">
+</video>
+</div>
+<p style="text-align:center; color:#5a7d64; font-style:italic; margin-top:12px;">My pretty girlfriend. 💜</p>
+</div>
+</section>
+
+<!-- TASK 7: Contact form -->
+<section id="contact">
+<div class="wrap">
+<h2>Get In Touch 💬</h2>
+<form>
+<label for="name">Your Name</label>
+<input type="text" id="name" name="name" placeholder="Enter your full name" required>
+<label for="email">Email Address</label>
+<input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+<label for="color">Favorite Color</label>
+<select id="color" name="color">
+< value="blue">💙 Blue — Calm & Peaceful</option>
+<option value="green" selected>💚 Green — Growth & Nature</option>
+<option value="gold">✨ Gold — Sunshine & Joy</option>
+<option value="other">🎨 Other — Something Unique</option>
+</select>
+
+<button type="submit">Send Message 💌</button>
+</form>
+</div>
+</section>
+
+<!-- TASK 10: Footer -->
+<footer>
+<div class="wrap">
+<h2 style="color:white; margin-bottom:25px; border-bottom-color:white;">Let's Connect!</h2>
+<p>📧 Email me at: <a href="mailto:gelocruz031@gmail.com">gelocruz031@gmail.com</a></p>
+<address>
+📍 Malacañang, Culasi, Antique — Philippines 🇵🇭<br>
+📞 Phone: +63 966 983 4205
+</address>
+<p>
+👋 Find me on Facebook: 
+<a href="https://www.facebook.com/profile.php?id=100087927172331" target="_blank">My Facebook Profile</a>
+</p>
+<p style="margin-top:30px; opacity:0.8; font-size:0.95rem;">
+© 2026 Angela Marie T Dela Cruz — BSIS 2nd Year<br>
+Built with 💚 and lots of coffee ☕
+</p>
+</div>
+</footer>
+
+</body>
+</html>
